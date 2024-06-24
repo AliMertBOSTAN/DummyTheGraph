@@ -1,0 +1,47 @@
+specVersion: 1.0.0
+indexerHints:
+  prune: auto
+schema:
+  file: schema.graphql
+dataSources:
+  - kind: ethereum
+    name: FactoryContract
+    network: sepolia
+    source:
+      address: "0x0Ebd85C763089a67d19dd3A85E02c19374e0EF3c"
+      abi: FactoryContract
+      startBlock: 6085299
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.7
+      language: wasm/assemblyscript
+      entities:
+        - ContractCreated
+      abis:
+        - name: FactoryContract
+          file: FactoryContract\abis\FactoryContract.json
+      eventHandlers:
+        - event: ContractCreated(indexed address,indexed address)
+          handler: handleContractCreated
+      file: FactoryContract\FactoryContract.wasm
+templates:
+  - kind: ethereum/contract
+    name: SimpleAccountContract
+    network: sepolia
+    source:
+      abi: SimpleAccountContract
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.7
+      language: wasm/assemblyscript
+      file: FactoryContract\FactoryContract.wasm
+      entities:
+        - SimpleAccountContract
+      abis:
+        - name: SimpleAccountContract
+          file: SimpleAccountContract\abis\SimpleAccountContract.json
+      eventHandlers:
+        - event: ValueChanged(uint256)
+          handler: handleValueChanged
+        - event: swapExecuted((address,address,uint128,uint128))
+          handler: handleswapExecuted

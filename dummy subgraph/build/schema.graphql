@@ -1,0 +1,27 @@
+type ContractCreated @entity(immutable: true) {
+  id: Bytes!
+  newContract: Bytes! # address
+  creator: Bytes! # address
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type ValueChanged @entity(immutable: true) {
+  id: Bytes!
+  newValue: BigInt! # uint256
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type swapExecuted @entity(immutable: true) {
+  id: Bytes!
+  newSwap_tokenBuy: Bytes! # address
+  newSwap_tokenSell: Bytes! # address
+  newSwap_value: BigInt! # uint128
+  newSwap_timestamp: BigInt! # uint128
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}

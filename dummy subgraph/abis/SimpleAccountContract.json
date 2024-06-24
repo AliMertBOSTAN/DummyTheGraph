@@ -1,0 +1,99 @@
+[
+  {
+    "inputs": [
+      { "internalType": "uint256", "name": "_initialValue", "type": "uint256" },
+      { "internalType": "address", "name": "_owner", "type": "address" },
+      { "internalType": "address", "name": "_subscribed", "type": "address" }
+    ],
+    "stateMutability": "payable",
+    "type": "constructor"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": false,
+        "internalType": "uint256",
+        "name": "newValue",
+        "type": "uint256"
+      }
+    ],
+    "name": "ValueChanged",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "components": [
+          { "internalType": "address", "name": "tokenBuy", "type": "address" },
+          { "internalType": "address", "name": "tokenSell", "type": "address" },
+          { "internalType": "uint128", "name": "value", "type": "uint128" },
+          { "internalType": "uint128", "name": "timestamp", "type": "uint128" }
+        ],
+        "indexed": false,
+        "internalType": "struct SimpleAccountContract.Swap",
+        "name": "newSwap",
+        "type": "tuple"
+      }
+    ],
+    "name": "swapExecuted",
+    "type": "event"
+  },
+  {
+    "inputs": [
+      { "internalType": "address", "name": "tokenBuy", "type": "address" },
+      { "internalType": "address", "name": "tokenSell", "type": "address" },
+      { "internalType": "uint128", "name": "value", "type": "uint128" },
+      { "internalType": "uint128", "name": "timestamp", "type": "uint128" }
+    ],
+    "name": "doSwap",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "fAddress",
+    "outputs": [{ "internalType": "address", "name": "", "type": "address" }],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "getVariable",
+    "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "initialValue",
+    "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "owner",
+    "outputs": [{ "internalType": "address", "name": "", "type": "address" }],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      { "internalType": "uint256", "name": "newValue", "type": "uint256" }
+    ],
+    "name": "setVariable",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "subscribed",
+    "outputs": [{ "internalType": "address", "name": "", "type": "address" }],
+    "stateMutability": "view",
+    "type": "function"
+  }
+]

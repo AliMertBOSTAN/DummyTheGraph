@@ -1,0 +1,12 @@
+{
+  "sepolia": {
+    "FactoryContract": {
+      "address": "0x0Ebd85C763089a67d19dd3A85E02c19374e0EF3c",
+      "startBlock": 6085299
+    },
+    "SimpleAccountContract": {
+      "address": "0x06C66B10816BbAEE6A885bA4BbA28E80C3dF0998",
+      "startBlock": 6085299
+    }
+  }
+}
