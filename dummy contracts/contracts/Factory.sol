@@ -1,17 +1,14 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.0;
 
-import "./Dummy.sol";
+import {IEntryPoint} from "account-abstraction/interfaces/IEntryPoint.sol";
+import {SimpleAccountContract} from "./Dummy.sol";
 
 contract FactoryContract {
-    SimpleAccountContract[] public deployedContracts;
+    SimpleAccountContract public immutable walletImplementation;
 
-    event ContractCreated(address indexed newContract, address indexed creator);
-
-    function createContract(uint initialValue, address _subscriber) public {
-        SimpleAccountContract newContract = new SimpleAccountContract(initialValue, msg.sender, _subscriber);
-        deployedContracts.push(newContract);
-        emit ContractCreated(address(newContract), msg.sender);
+    constructor(IEntryPoint entryPoint) {
+        walletImplementation = new SimpleAccountContract(entryPoint, address(this));
     }
 
 }
