@@ -6,8 +6,10 @@ import {BaseAccount} from "./core/BaseAccount.sol";
 import {UserOperation} from "./interfaces/UserOperation.sol";
 import {ECDSA} from "@openzeppelin/contracts/utils/cryptography/ECDSA.sol";
 import {Initializable} from "@openzeppelin/contracts/proxy/utils/Initializable.sol";
+import {UUPSUpgradeable} from "@openzeppelin/contracts/proxy/utils/UUPSUpgradeable.sol";
+import {TokenCallbackHandler} from "./samples/callback/TokenCallbackHandler.sol";
 
-contract SimpleAccountContract is BaseAccount, Initializable {
+contract SimpleAccountContract is BaseAccount, Initializable, UUPSUpgradeable, TokenCallbackHandler {
     address public immutable walletFactory;
     IEntryPoint private immutable _entryPoint;
     using ECDSA for bytes32;
@@ -31,6 +33,10 @@ contract SimpleAccountContract is BaseAccount, Initializable {
     function entryPoint() public view override returns (IEntryPoint) {
         return _entryPoint;
     }
+
+    function _authorizeUpgrade(
+        address
+    ) internal view override _requireFromEntryPointOrFactory {}
 
     function _validateSignature(
         UserOperation calldata userOp, // UserOperation veri yapısı girdi olarak geçirildi.
@@ -92,4 +98,22 @@ contract SimpleAccountContract is BaseAccount, Initializable {
             _call(dests[i], values[i], funcs[i]);
         }
     }
+
+    // encodeSignatures, imzaları bir byte dizisine kodlar. Bu byte dizisi, sözleşmeye çağrı yaparken veri olarak geçirilebilir.
+    function encodeSignatures(
+        bytes[] memory signatures
+    ) public pure returns (bytes memory) {
+        return abi.encode(signatures);
+    }
+
+    // getDeposit, EntryPoint içindeki Cüzdanın bakiyesini kontrol eder.
+    function getDeposit() public view returns (uint256) {
+        return entryPoint().balanceOf(address(this));
+    }
+
+    function addDeposit() public payable {
+        entryPoint().depositTo{value: msg.value}(address(this));
+    }
+
+    receive() external payable {}
 }
