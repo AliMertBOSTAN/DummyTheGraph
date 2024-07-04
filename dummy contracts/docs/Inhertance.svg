@@ -1,0 +1,253 @@
+<?xml version="1.0" standalone="no"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="2047pt" height="188pt" viewBox="0.00 0.00 2046.62 188.00">
+<g id="graph0" class="graph" transform="translate(51.0100187205735,277.7821303771549) scale(2.0000000000000018)" data-name="G">
+
+<polygon fill="white" stroke="none" points="-4,4 -4,-184 2042.62,-184 2042.62,4 -4,4" style=""/>
+<!-- IEntryPoint -->
+<g id="node1" class="node" pointer-events="visible" data-name="IEntryPoint">
+
+<ellipse fill="none" stroke="black" cx="207.81" cy="-90" rx="56.2" ry="18" style=""/>
+<text text-anchor="middle" x="207.81" y="-85.8" font-family="Times,serif" font-size="14.00" style="">IEntryPoint</text>
+</g>
+<!-- IStakeManager -->
+<g id="node2" class="node" pointer-events="visible" data-name="IStakeManager">
+
+<ellipse fill="none" stroke="black" cx="128.81" cy="-18" rx="70.05" ry="18" style=""/>
+<text text-anchor="middle" x="128.81" y="-13.8" font-family="Times,serif" font-size="14.00" style="">IStakeManager</text>
+</g>
+<!-- IEntryPoint&#45;&gt;IStakeManager -->
+<g id="edge1" class="edge" data-name="IEntryPoint-&gt;IStakeManager">
+
+<path fill="none" stroke="black" d="M184.56,-73.46C173.73,-64.78 161.02,-53.75 150.41,-43.89" style=""/>
+<polygon fill="black" stroke="black" points="152.83,-41.36 143.17,-37 148,-46.43 152.83,-41.36" style=""/>
+</g>
+<!-- IEntryPoint&#45;&gt;IStakeManager -->
+<g id="edge11" class="edge" data-name="IEntryPoint-&gt;IStakeManager">
+
+<path fill="none" stroke="black" d="M194.56,-72.05C185.46,-63.16 173.18,-52.11 161.64,-42.41" style=""/>
+<polygon fill="black" stroke="black" points="164.13,-39.93 154.19,-36.27 159.68,-45.33 164.13,-39.93" style=""/>
+</g>
+<!-- INonceManager -->
+<g id="node3" class="node" pointer-events="visible" data-name="INonceManager">
+
+<ellipse fill="none" stroke="black" cx="290.81" cy="-18" rx="73.55" ry="18" style=""/>
+<text text-anchor="middle" x="290.81" y="-13.8" font-family="Times,serif" font-size="14.00" style="">INonceManager</text>
+</g>
+<!-- IEntryPoint&#45;&gt;INonceManager -->
+<g id="edge2" class="edge" data-name="IEntryPoint-&gt;INonceManager">
+
+<path fill="none" stroke="black" d="M221.64,-72.41C231.38,-63.37 244.63,-52.03 256.99,-42.13" style=""/>
+<polygon fill="black" stroke="black" points="258.88,-45.1 264.58,-36.16 254.55,-39.59 258.88,-45.1" style=""/>
+</g>
+<!-- IEntryPoint&#45;&gt;INonceManager -->
+<g id="edge12" class="edge" data-name="IEntryPoint-&gt;INonceManager">
+
+<path fill="none" stroke="black" d="M231.95,-73.46C243.39,-64.69 256.88,-53.53 268.12,-43.6" style=""/>
+<polygon fill="black" stroke="black" points="270.38,-46.28 275.45,-36.98 265.69,-41.08 270.38,-46.28" style=""/>
+</g>
+<!-- IAggregator -->
+<g id="node4" class="node" pointer-events="visible" data-name="IAggregator">
+
+<ellipse fill="none" stroke="black" cx="722.81" cy="-162" rx="58.46" ry="18" style=""/>
+<text text-anchor="middle" x="722.81" y="-157.8" font-family="Times,serif" font-size="14.00" style="">IAggregator</text>
+</g>
+<!-- BaseAccount -->
+<g id="node5" class="node" pointer-events="visible" data-name="BaseAccount">
+
+<ellipse fill="none" stroke="black" cx="786.81" cy="-90" rx="62.55" ry="18" style=""/>
+<text text-anchor="middle" x="786.81" y="-85.8" font-family="Times,serif" font-size="14.00" style="">BaseAccount</text>
+</g>
+<!-- IAccount -->
+<g id="node6" class="node" pointer-events="visible" data-name="IAccount">
+
+<ellipse fill="none" stroke="black" cx="786.81" cy="-18" rx="46.93" ry="18" style=""/>
+<text text-anchor="middle" x="786.81" y="-13.8" font-family="Times,serif" font-size="14.00" style="">IAccount</text>
+</g>
+<!-- BaseAccount&#45;&gt;IAccount -->
+<g id="edge3" class="edge" data-name="BaseAccount-&gt;IAccount">
+
+<path fill="none" stroke="black" d="M786.81,-71.7C786.81,-64.41 786.81,-55.73 786.81,-47.54" style=""/>
+<polygon fill="black" stroke="black" points="790.31,-47.62 786.81,-37.62 783.31,-47.62 790.31,-47.62" style=""/>
+</g>
+<!-- UserOperationLib -->
+<g id="node7" class="node" pointer-events="visible" data-name="UserOperationLib">
+
+<ellipse fill="none" stroke="black" cx="1260.81" cy="-162" rx="81.09" ry="18" style=""/>
+<text text-anchor="middle" x="1260.81" y="-157.8" font-family="Times,serif" font-size="14.00" style="">UserOperationLib</text>
+</g>
+<!-- TokenCallbackHandler -->
+<g id="node8" class="node" pointer-events="visible" data-name="TokenCallbackHandler">
+
+<ellipse fill="none" stroke="black" cx="968.81" cy="-90" rx="101.26" ry="18" style=""/>
+<text text-anchor="middle" x="968.81" y="-85.8" font-family="Times,serif" font-size="14.00" style="">TokenCallbackHandler</text>
+</g>
+<!-- IERC721Receiver -->
+<g id="node9" class="node" pointer-events="visible" data-name="IERC721Receiver">
+
+<ellipse fill="none" stroke="black" cx="950.81" cy="-18" rx="81.66" ry="18" style=""/>
+<text text-anchor="middle" x="950.81" y="-13.8" font-family="Times,serif" font-size="14.00" style="">IERC721Receiver</text>
+</g>
+<!-- TokenCallbackHandler&#45;&gt;IERC721Receiver -->
+<g id="edge4" class="edge" data-name="TokenCallbackHandler-&gt;IERC721Receiver">
+
+<path fill="none" stroke="black" d="M964.36,-71.7C962.46,-64.32 960.2,-55.52 958.07,-47.25" style=""/>
+<polygon fill="black" stroke="black" points="961.46,-46.38 955.58,-37.57 954.69,-48.13 961.46,-46.38" style=""/>
+</g>
+<!-- IERC1155Receiver -->
+<g id="node10" class="node" pointer-events="visible" data-name="IERC1155Receiver">
+
+<ellipse fill="none" stroke="black" cx="1136.81" cy="-18" rx="86.82" ry="18" style=""/>
+<text text-anchor="middle" x="1136.81" y="-13.8" font-family="Times,serif" font-size="14.00" style="">IERC1155Receiver</text>
+</g>
+<!-- TokenCallbackHandler&#45;&gt;IERC1155Receiver -->
+<g id="edge5" class="edge" data-name="TokenCallbackHandler-&gt;IERC1155Receiver">
+
+<path fill="none" stroke="black" d="M1007.35,-72.94C1031.62,-62.83 1063.13,-49.7 1088.98,-38.93" style=""/>
+<polygon fill="black" stroke="black" points="1090.03,-42.28 1097.92,-35.21 1087.34,-35.82 1090.03,-42.28" style=""/>
+</g>
+<!-- FactoryContract -->
+<g id="node11" class="node" pointer-events="visible" data-name="FactoryContract">
+
+<ellipse fill="none" stroke="black" cx="1433.81" cy="-162" rx="73.58" ry="18" style=""/>
+<text text-anchor="middle" x="1433.81" y="-157.8" font-family="Times,serif" font-size="14.00" style="">FactoryContract</text>
+</g>
+<!-- Exec -->
+<g id="node12" class="node" pointer-events="visible" data-name="Exec">
+
+<ellipse fill="none" stroke="black" cx="1555.81" cy="-162" rx="30.17" ry="18" style=""/>
+<text text-anchor="middle" x="1555.81" y="-157.8" font-family="Times,serif" font-size="14.00" style="">Exec</text>
+</g>
+<!-- EntryPoint -->
+<g id="node13" class="node" pointer-events="visible" data-name="EntryPoint">
+
+<ellipse fill="none" stroke="black" cx="352.81" cy="-162" rx="52.77" ry="18" style=""/>
+<text text-anchor="middle" x="352.81" y="-157.8" font-family="Times,serif" font-size="14.00" style="">EntryPoint</text>
+</g>
+<!-- EntryPoint&#45;&gt;IEntryPoint -->
+<g id="edge6" class="edge" data-name="EntryPoint-&gt;IEntryPoint">
+
+<path fill="none" stroke="black" d="M323.12,-146.67C301.46,-136.21 271.88,-121.93 248.09,-110.45" style=""/>
+<polygon fill="black" stroke="black" points="249.85,-107.41 239.32,-106.21 246.81,-113.71 249.85,-107.41" style=""/>
+</g>
+<!-- StakeManager -->
+<g id="node14" class="node" pointer-events="visible" data-name="StakeManager">
+
+<ellipse fill="none" stroke="black" cx="66.81" cy="-90" rx="66.62" ry="18" style=""/>
+<text text-anchor="middle" x="66.81" y="-85.8" font-family="Times,serif" font-size="14.00" style="">StakeManager</text>
+</g>
+<!-- EntryPoint&#45;&gt;StakeManager -->
+<g id="edge7" class="edge" data-name="EntryPoint-&gt;StakeManager">
+
+<path fill="none" stroke="black" d="M310.92,-150.75C262.14,-138.81 181.25,-119.01 126.05,-105.5" style=""/>
+<polygon fill="black" stroke="black" points="127.05,-102.14 116.5,-103.16 125.38,-108.94 127.05,-102.14" style=""/>
+</g>
+<!-- NonceManager -->
+<g id="node15" class="node" pointer-events="visible" data-name="NonceManager">
+
+<ellipse fill="none" stroke="black" cx="352.81" cy="-90" rx="70.62" ry="18" style=""/>
+<text text-anchor="middle" x="352.81" y="-85.8" font-family="Times,serif" font-size="14.00" style="">NonceManager</text>
+</g>
+<!-- EntryPoint&#45;&gt;NonceManager -->
+<g id="edge8" class="edge" data-name="EntryPoint-&gt;NonceManager">
+
+<path fill="none" stroke="black" d="M352.81,-143.7C352.81,-136.41 352.81,-127.73 352.81,-119.54" style=""/>
+<polygon fill="black" stroke="black" points="356.31,-119.62 352.81,-109.62 349.31,-119.62 356.31,-119.62" style=""/>
+</g>
+<!-- ReentrancyGuard -->
+<g id="node16" class="node" pointer-events="visible" data-name="ReentrancyGuard">
+
+<ellipse fill="none" stroke="black" cx="520.81" cy="-90" rx="79.28" ry="18" style=""/>
+<text text-anchor="middle" x="520.81" y="-85.8" font-family="Times,serif" font-size="14.00" style="">ReentrancyGuard</text>
+</g>
+<!-- EntryPoint&#45;&gt;ReentrancyGuard -->
+<g id="edge9" class="edge" data-name="EntryPoint-&gt;ReentrancyGuard">
+
+<path fill="none" stroke="black" d="M385.2,-147.5C410.31,-137.04 445.47,-122.39 473.69,-110.63" style=""/>
+<polygon fill="black" stroke="black" points="474.85,-113.94 482.74,-106.86 472.16,-107.48 474.85,-113.94" style=""/>
+</g>
+<!-- ERC165 -->
+<g id="node17" class="node" pointer-events="visible" data-name="ERC165">
+
+<ellipse fill="none" stroke="black" cx="661.81" cy="-90" rx="44.11" ry="18" style=""/>
+<text text-anchor="middle" x="661.81" y="-85.8" font-family="Times,serif" font-size="14.00" style="">ERC165</text>
+</g>
+<!-- EntryPoint&#45;&gt;ERC165 -->
+<g id="edge10" class="edge" data-name="EntryPoint-&gt;ERC165">
+
+<path fill="none" stroke="black" d="M398.93,-152.98C450.45,-143.66 536.17,-127.11 608.81,-108 611.73,-107.23 614.73,-106.4 617.74,-105.52" style=""/>
+<polygon fill="black" stroke="black" points="618.6,-108.92 627.16,-102.68 616.57,-102.22 618.6,-108.92" style=""/>
+</g>
+<!-- StakeManager&#45;&gt;IStakeManager -->
+<g id="edge13" class="edge" data-name="StakeManager-&gt;IStakeManager">
+
+<path fill="none" stroke="black" d="M81.82,-72.05C89.2,-63.71 98.26,-53.49 106.44,-44.25" style=""/>
+<polygon fill="black" stroke="black" points="108.93,-46.73 112.94,-36.92 103.68,-42.09 108.93,-46.73" style=""/>
+</g>
+<!-- NonceManager&#45;&gt;INonceManager -->
+<g id="edge14" class="edge" data-name="NonceManager-&gt;INonceManager">
+
+<path fill="none" stroke="black" d="M337.8,-72.05C330.41,-63.71 321.36,-53.49 313.17,-44.25" style=""/>
+<polygon fill="black" stroke="black" points="315.93,-42.09 306.68,-36.92 310.69,-46.73 315.93,-42.09" style=""/>
+</g>
+<!-- IAccountExecute -->
+<g id="node18" class="node" pointer-events="visible" data-name="IAccountExecute">
+
+<ellipse fill="none" stroke="black" cx="1681.81" cy="-162" rx="78.13" ry="18" style=""/>
+<text text-anchor="middle" x="1681.81" y="-157.8" font-family="Times,serif" font-size="14.00" style="">IAccountExecute</text>
+</g>
+<!-- IPaymaster -->
+<g id="node19" class="node" pointer-events="visible" data-name="IPaymaster">
+
+<ellipse fill="none" stroke="black" cx="1832.81" cy="-162" rx="54.46" ry="18" style=""/>
+<text text-anchor="middle" x="1832.81" y="-157.8" font-family="Times,serif" font-size="14.00" style="">IPaymaster</text>
+</g>
+<!-- SenderCreator -->
+<g id="node20" class="node" pointer-events="visible" data-name="SenderCreator">
+
+<ellipse fill="none" stroke="black" cx="1971.81" cy="-162" rx="66.62" ry="18" style=""/>
+<text text-anchor="middle" x="1971.81" y="-157.8" font-family="Times,serif" font-size="14.00" style="">SenderCreator</text>
+</g>
+<!-- SimpleAccountContract -->
+<g id="node21" class="node" pointer-events="visible" data-name="SimpleAccountContract">
+
+<ellipse fill="none" stroke="black" cx="1056.81" cy="-162" rx="104.23" ry="18" style=""/>
+<text text-anchor="middle" x="1056.81" y="-157.8" font-family="Times,serif" font-size="14.00" style="">SimpleAccountContract</text>
+</g>
+<!-- SimpleAccountContract&#45;&gt;BaseAccount -->
+<g id="edge15" class="edge" data-name="SimpleAccountContract-&gt;BaseAccount">
+
+<path fill="none" stroke="black" d="M1000.54,-146.41C954.42,-134.45 889.46,-117.61 843.29,-105.64" style=""/>
+<polygon fill="black" stroke="black" points="844.3,-102.29 833.74,-103.17 842.54,-109.06 844.3,-102.29" style=""/>
+</g>
+<!-- SimpleAccountContract&#45;&gt;TokenCallbackHandler -->
+<g id="edge18" class="edge" data-name="SimpleAccountContract-&gt;TokenCallbackHandler">
+
+<path fill="none" stroke="black" d="M1035.51,-144.05C1024.56,-135.35 1011.04,-124.59 999.03,-115.04" style=""/>
+<polygon fill="black" stroke="black" points="1001.41,-112.46 991.4,-108.97 997.05,-117.94 1001.41,-112.46" style=""/>
+</g>
+<!-- Initializable -->
+<g id="node22" class="node" pointer-events="visible" data-name="Initializable">
+
+<ellipse fill="none" stroke="black" cx="1144.81" cy="-90" rx="57.3" ry="18" style=""/>
+<text text-anchor="middle" x="1144.81" y="-85.8" font-family="Times,serif" font-size="14.00" style="">Initializable</text>
+</g>
+<!-- SimpleAccountContract&#45;&gt;Initializable -->
+<g id="edge16" class="edge" data-name="SimpleAccountContract-&gt;Initializable">
+
+<path fill="none" stroke="black" d="M1078.11,-144.05C1089.38,-135.09 1103.38,-123.95 1115.65,-114.2" style=""/>
+<polygon fill="black" stroke="black" points="1117.78,-116.97 1123.43,-108.01 1113.42,-111.5 1117.78,-116.97" style=""/>
+</g>
+<!-- UUPSUpgradeable -->
+<g id="node23" class="node" pointer-events="visible" data-name="UUPSUpgradeable">
+
+<ellipse fill="none" stroke="black" cx="1304.81" cy="-90" rx="85.11" ry="18" style=""/>
+<text text-anchor="middle" x="1304.81" y="-85.8" font-family="Times,serif" font-size="14.00" style="">UUPSUpgradeable</text>
+</g>
+<!-- SimpleAccountContract&#45;&gt;UUPSUpgradeable -->
+<g id="edge17" class="edge" data-name="SimpleAccountContract-&gt;UUPSUpgradeable">
+
+<path fill="none" stroke="black" d="M1109.71,-146.07C1149.19,-134.92 1203.2,-119.68 1244.38,-108.06" style=""/>
+<polygon fill="black" stroke="black" points="1245.24,-111.45 1253.91,-105.37 1243.34,-104.71 1245.24,-111.45" style=""/>
+</g>
+</g>
+</svg>
