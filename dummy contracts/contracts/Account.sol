@@ -59,7 +59,7 @@ contract SimpleAccountContract is BaseAccount, Initializable, UUPSUpgradeable, T
             }
         }
         // Eğer tüm imzalar geçerli ise (yani hepsi sahiplerine aitse), 0 değerini döndür.
-        return 0;
+        return SIG_VALIDATION_SUCCESS;
     }
 
     function initialize(address[] memory initialOwners) public initializer {
