@@ -3,11 +3,13 @@ pragma solidity ^0.8.0;
 
 import {IEntryPoint} from "./interfaces/IEntryPoint.sol";
 import {BaseAccount} from "./core/BaseAccount.sol";
-import {UserOperation} from "./interfaces/UserOperation.sol";
+import {PackedUserOperation} from "./interfaces/PackedUserOperation.sol";
 import {ECDSA} from "@openzeppelin/contracts/utils/cryptography/ECDSA.sol";
 import {Initializable} from "@openzeppelin/contracts/proxy/utils/Initializable.sol";
 import {UUPSUpgradeable} from "@openzeppelin/contracts/proxy/utils/UUPSUpgradeable.sol";
+import "@openzeppelin/contracts/utils/cryptography/MessageHashUtils.sol";
 import {TokenCallbackHandler} from "./samples/callback/TokenCallbackHandler.sol";
+import "./core/Helpers.sol";
 
 contract SimpleAccountContract is BaseAccount, Initializable, UUPSUpgradeable, TokenCallbackHandler {
     address public immutable walletFactory;
@@ -40,10 +42,11 @@ contract SimpleAccountContract is BaseAccount, Initializable, UUPSUpgradeable, T
 
     // _validateSignature verilen bir akıllı kontrat cüzdanının tüm sahiplerinin imzalarını doğrulamak için kullanılır.
     function _validateSignature(
-        UserOperation calldata userOp, // UserOperation veri yapısı girdi olarak geçirildi.
+        PackedUserOperation calldata userOp, // UserOperation veri yapısı girdi olarak geçirildi.
         bytes32 userOpHash // UserOperation'ın hash'i ama imza olmadan.
     ) internal view override returns (uint256) {
         // userOpHash'ı Ethereum Signed Message Hash'e çevirilmesi.
+        // userOpHash import hatası var MessageHashUtils kullanılabilir 
         bytes32 hash = userOpHash.toEthSignedMessageHash();
 
         // imzanın userOp'dan decode edilmesi ve array olarak memory kayıt edilmesi.
@@ -93,8 +96,8 @@ contract SimpleAccountContract is BaseAccount, Initializable, UUPSUpgradeable, T
         uint256[] calldata values,
         bytes[] calldata funcs
     ) external _requireFromEntryPointOrFactory {
-        require(dests.length == funcs.length,"Yanlış hedef uzunlukları");
-        require(values.length == funcs.length, "Yanlış değer uzunlukları");
+        require(dests.length == funcs.length,"Wrong dests length");
+        require(values.length == funcs.length, "Wrong values length");
         for (uint256 i = 0; i < dests.length; i++) {
             _call(dests[i], values[i], funcs[i]);
         }
