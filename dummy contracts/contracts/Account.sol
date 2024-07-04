@@ -46,8 +46,7 @@ contract SimpleAccountContract is BaseAccount, Initializable, UUPSUpgradeable, T
         bytes32 userOpHash // UserOperation'ın hash'i ama imza olmadan.
     ) internal view override returns (uint256) {
         // userOpHash'ı Ethereum Signed Message Hash'e çevirilmesi.
-        // userOpHash import hatası var MessageHashUtils kullanılabilir 
-        bytes32 hash = userOpHash.toEthSignedMessageHash();
+       bytes32 hash = MessageHashUtils.toEthSignedMessageHash(userOpHash);
 
         // imzanın userOp'dan decode edilmesi ve array olarak memory kayıt edilmesi.
         bytes[] memory signatures = abi.decode(userOp.signature, (bytes[]));
