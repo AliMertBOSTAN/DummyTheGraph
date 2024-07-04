@@ -38,19 +38,20 @@ contract SimpleAccountContract is BaseAccount, Initializable, UUPSUpgradeable, T
         address
     ) internal view override _requireFromEntryPointOrFactory {}
 
+    // _validateSignature verilen bir akıllı kontrat cüzdanının tüm sahiplerinin imzalarını doğrulamak için kullanılır.
     function _validateSignature(
         UserOperation calldata userOp, // UserOperation veri yapısı girdi olarak geçirildi.
-        bytes32 userOpHash // UserOperation'ın hash'i ama imza olmadan
+        bytes32 userOpHash // UserOperation'ın hash'i ama imza olmadan.
     ) internal view override returns (uint256) {
-        // userOpHash'ı Ethereum Signed Message Hash'e çevirilmesi
+        // userOpHash'ı Ethereum Signed Message Hash'e çevirilmesi.
         bytes32 hash = userOpHash.toEthSignedMessageHash();
 
-        // imzanın userOp'dan decode edilmesi ve array olarak memory kayıt edilmesi
+        // imzanın userOp'dan decode edilmesi ve array olarak memory kayıt edilmesi.
         bytes[] memory signatures = abi.decode(userOp.signature, (bytes[]));
 
         for (uint256 i = 0; i < owners.length; i++) {
-            // Her imzadan imzalayanın adresini kurtar
-            // Kurtarılan adres sahibin adresiyle eşleşmiyorsa, SIG_VALIDATION_FAILED değerini döndür
+            // Her imzadan imzalayanın adresini kurtar.
+            // Kurtarılan adres sahibin adresiyle eşleşmiyorsa, SIG_VALIDATION_FAILED değerini döndür.
             if (owners[i] != hash.recover(signatures[i])) {
                 return SIG_VALIDATION_FAILED;
             }
@@ -73,7 +74,7 @@ contract SimpleAccountContract is BaseAccount, Initializable, UUPSUpgradeable, T
         (bool success, bytes memory result) = target.call{value: value}(data);
         if (!success) {
             assembly {
-                // Bu montaj kodu burada sonucun ilk 32 byte'ını atlar; bu kısım verinin uzunluğunu içerir.
+                // Burada stack'te bulunan son verinin ilk 32 byte'ını atlar; bu kısım verinin uzunluğunu içerir.
                 // Ardından mload kullanarak gerçek hata mesajını yükler ve bu hata mesajıyla revert çağrısı yapar.
                 revert(add(result, 32), mload(result))
             }
