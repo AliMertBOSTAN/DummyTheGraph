@@ -17,7 +17,7 @@ contract FactoryContract {
         address[] memory owners,
         uint256 salt
     ) public view returns (address) {
-        // Bu initialize fonksiyonunun Wallet kontratındaki calldata'sıdır biz bunu bir byte array'e yazarız.
+        // Bu initialize fonksiyonunun SimpleAccountContract kontratındaki calldata'sıdır biz bunu bir byte array'e yazarız.
         bytes memory walletInit = abi.encodeCall(SimpleAccountContract.initialize, owners);
         // Bu da kuracağımız proxy için constructor'ın calldata'sıdır.
         bytes memory proxyConstructor = abi.encode(
@@ -38,18 +38,18 @@ contract FactoryContract {
     function createAccount(
         address[] memory owners,
         uint256 salt
-    ) external returns (Wallet) {
+    ) external returns (SimpleAccountContract) {
         // İlk olarak, getAddress fonksiyonunu çağırarak adresi elde ediyoruz.
         address addr = getAddress(owners, salt);
         // Kontratın zaten var olup olmadığını kod boyutunu kontrol ederek doğruluyoruz.
         uint256 codeSize = addr.code.length;
         if (codeSize > 0) {
             // Eğer öyleyse, sadece o adresteki proxy kontratını döndürüyoruz.
-            return Wallet(payable(addr));
+            return SimpleAccountContract(payable(addr));
         }
 
         // Eğer öyle değilse, yeni bir proxy kontratı dağıtıyoruz
-        bytes memory walletInit = abi.encodeCall(Wallet.initialize, owners);
+        bytes memory walletInit = abi.encodeCall(SimpleAccountContract.initialize, owners);
         // Salt kullanıyoruz; bu, proxy kontratı için benzersiz bir adres sağlamak için kullanılır.
         // Proxy kontratının constructor'ının argümanları olarak wallet implementasyonunun adresini ve walletInit'i gönderiyoruz.
         ERC1967Proxy proxy = new ERC1967Proxy{salt: bytes32(salt)}(
@@ -58,7 +58,7 @@ contract FactoryContract {
         );
 
         // Hesabın adresini döndürüyoruz.
-        return Wallet(payable(address(proxy)));
+        return SimpleAccountContract(payable(address(proxy)));
     }
 
 }
