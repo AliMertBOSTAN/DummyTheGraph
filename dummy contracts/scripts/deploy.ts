@@ -1,45 +1,67 @@
 import hre from "hardhat";
 import { ContractFactory, BytesLike, BigNumber, Signer } from 'ethers';
-import { FactoryContract } from "../typechain";
-import { SimpleAccountContract } from "../typechain"
-import { get } from "http";
-
+import deployEntryPoint from "./1_deploy_entrypoint";
+import { HardhatRuntimeEnvironment } from 'hardhat/types'
+import { DeployFunction } from 'hardhat-deploy/types'
+import { FactoryContract, SimpleAccount } from "../typechain";
 
 const { ethers } = hre;
 
+interface Addrs {
+  EntryPoint: string | undefined,
+  Factory: string | undefined
+}
+
+let addrs : Addrs = {
+  EntryPoint: "0xCf7Ed3AccA5a467e9e704C703E8D87F634fB0Fc9",
+  Factory: "0x5FC8d32690cc91D4c39d9d3abcBD16989F875707"
+}
+
+const deploySimpleAccountFactory = async function (): Promise<FactoryContract | undefined> {
+  const provider = ethers.provider
+  const from = await provider.getSigner().getAddress()
+  const network = await provider.getNetwork()
+  let ret = undefined
+
+  if(addrs.EntryPoint !== undefined){
+    let factory = await ethers.getContractFactory("FactoryContract")
+    ret =addrs.Factory ? factory.attach(addrs.Factory) as FactoryContract : await factory.deploy(addrs.EntryPoint) as FactoryContract
+    addrs.Factory = ret.address
+    console.log("Factory Address == ", ret.address)
+  }
+
+  return ret
+}
 
 async function main() {
-  console.log("1")
+  let res
   const currentTimestampInSeconds = Math.round(Date.now() / 1000);
   const override = { gasPrice: BigNumber.from("10").pow(9).mul(2), gasLimit: 6000000}
   
-  console.log("2")
-  let factory = await ethers.getContractFactory("FactoryContract")
-  let FactoryContract = await factory.attach("0x0Ebd85C763089a67d19dd3A85E02c19374e0EF3c") as FactoryContract
-  
-  console.log("3")
-  // await FactoryContract.createContract("1597532684","0x3333333333333333333333333333333333333333")
-  // console.log("4")
-  // let get_addres = await FactoryContract.
-  // console.log("5")
-  
-  // console.log(get_addres)
-  
-  // const _dummy = get_addres
-  // const test = _dummy[0]
-  
-  // console.log("6")
-  factory = await ethers.getContractFactory("SimpleAccountContract")
-  let dummy = await factory.attach("0xa60ca55719cde486214b1c81435c451f2c540e15") as SimpleAccountContract
-  await dummy.setVariable(321321)
-  await dummy.doSwap("0x1234567890123456789012345678901234567890", "0x9876543210987654321098765432109876543210", 963852741, currentTimestampInSeconds)
-  // console.log("7")
+  if(addrs.EntryPoint == undefined){
+    let EP = await deployEntryPoint()
+    addrs.EntryPoint = EP.address
+  }
+
+
+  const EP = await deploySimpleAccountFactory()
+
+  res = await EP?.createAccount(["0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266", "0x70997970C51812dc3A010C7d01b50e0d17dc79C8"], 1138)
+  console.log(res)
+
+  res = await EP?.getAddress(["0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266", "0x70997970C51812dc3A010C7d01b50e0d17dc79C8"], 1138)
+  console.log(res) // => 0xB6C28A042132fE1D008B35Dcf1058f8a94b159Dc
+
+  let factory = await ethers.getContractFactory("SimpleAccountContract")
+  const Account = factory.attach("0xB6C28A042132fE1D008B35Dcf1058f8a94b159Dc") as SimpleAccount
+
+  res = await Account.entryPoint()
+  console.log(res)
 }
 
 // We recommend this pattern to be able to use async/await everywhere
 // and properly handle errors.
 main().catch((error) => {
-  console.log("6")
   console.error(error);
   process.exitCode = 1;
 });
