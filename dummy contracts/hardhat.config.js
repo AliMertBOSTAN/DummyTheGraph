@@ -43,7 +43,7 @@ module.exports = {
         sepolia: {
             url: 'https://sepolia.infura.io/v3/a3ea7aca6fce4e6fa10a72aaf978f409',
             chainId: 11155111,
-            accounts: ["0x7c5e2cfbba7b00ba95e5ed7cd80566021da709442e147ad3e08f23f5044a3d5a"]
+            accounts: [process.env.SecretKey]
         }
     }
 };
